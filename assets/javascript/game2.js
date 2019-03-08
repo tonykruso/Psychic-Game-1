@@ -1,7 +1,7 @@
 var wins = 0;
 var losses = 0;
 var guessesLeft = 9;
-var lettersGuessed = 0;
+var lettersGuessed = [];
 
 var computerChoice = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
 
@@ -14,28 +14,18 @@ var lettersGuessedText = document.getElementById("lettersGuessed-text");
 document.onkeyup = function(event) {
   var userGuess = event.key;
   var computerGuess = computerChoice[Math.floor(Math.random() * computerChoice.length)];
-  var lettersGuessedText = document.getElementById("lettersGuessed-text").value;
-  document.getElementById("lettersGuessed-text").innerHTML = lettersGuessedText;
-
-
-
-
-    //function myFunction() {
-      //var x = document.getElementById("fname").value;
-      //document.getElementById("demo").innerHTML = x;
-   // }
-  //var guessesLeft
-
+  lettersGuessed.push(userGuess);
 
   if ((userGuess === computerGuess)){
     wins++;
-  }
-  else {
+  }else if (guessesLeft > 1) {
+    guessesLeft--;
+  }else {
     losses++;
+    guessesLeft = 9;
+    lettersGuessed = [];
   }
-  //if (userGuess === 9){
-    //reset counter to zero
-  //}
+
   winsText.textContent = "Wins: " + wins;
   lossesText.textContent = "Losses: " + losses;
   guessesLeftText.textContent = "Guesses Left: " + guessesLeft;
