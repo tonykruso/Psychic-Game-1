@@ -14,6 +14,16 @@ var lettersGuessedText = document.getElementById("lettersGuessed-text");
 document.onkeyup = function(event) {
   var userGuess = event.key;
   var computerGuess = computerChoice[Math.floor(Math.random() * computerChoice.length)];
+  var lettersGuessedText = document.getElementById("lettersGuessed-text").value;
+  document.getElementById("lettersGuessed-text").innerHTML = lettersGuessedText;
+
+
+
+
+    //function myFunction() {
+      //var x = document.getElementById("fname").value;
+      //document.getElementById("demo").innerHTML = x;
+   // }
   //var guessesLeft
 
 
